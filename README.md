@@ -56,6 +56,78 @@ The initial integration uses the official Python SDK version documented by Sarva
 7. Provider abstraction and additional speech backends
 8. Agent workflows with explicit user approval and audit logs
 
+
+cat >> README.md <<'EOF'
+
+---
+
+## Production Deployment & Verification
+
+**VOXERA v0.1.0 is deployed and publicly accessible.**
+
+### Live Application
+
+| Component | Deployment |
+|---|---|
+| Frontend | [VOXERA on Vercel](https://voxera-kappa.vercel.app/) |
+| Backend API | [VOXERA on Render](https://voxera-gibk.onrender.com/) |
+| API Documentation | [Swagger UI](https://voxera-gibk.onrender.com/docs) |
+| Health Check | [Backend Health](https://voxera-gibk.onrender.com/health) |
+
+### Deployment Architecture
+
+```text
+                User Browser
+                     |
+                     v
+          Vercel - React + Vite
+                     |
+                HTTPS / CORS
+                     |
+                     v
+          Render - FastAPI Backend
+                     |
+                     v
+              Sarvam AI API
+                     |
+                     v
+          Transcription Response
+                     |
+                     v
+             VOXERA Web Interface
+```
+
+### Production Verification
+
+The following checks have been performed against the deployed application:
+
+| Test | Result |
+|---|---|
+| Frontend deployment on Vercel | Passed |
+| Backend deployment on Render | Passed |
+| Backend health endpoint | HTTP 200 |
+| Swagger API documentation | HTTP 200 |
+| CORS preflight request | HTTP 200 |
+| Frontend-to-backend connectivity | Passed |
+| Live microphone recording | Passed |
+| Audio upload to backend | Passed |
+| Sarvam transcription | Passed |
+| Transcription displayed in frontend | Passed |
+| Analytics API endpoints | Passed |
+
+A live microphone recording was successfully processed through the production pipeline and returned a transcription.
+
+### Current Deployment Notes
+
+- Analytics endpoints are operational, but the production report collection is currently empty.
+- Evaluation reports are stored using the backend filesystem. Persistent storage is not yet configured.
+- Render free instances may spin down after inactivity, introducing cold-start delays.
+- Engineering vocabulary recognition requires further controlled testing using technical speech samples.
+
+---
+
+EOF
+
 ## License
 
 MIT (see `LICENSE`).
