@@ -4,6 +4,17 @@
 
 > Listen. Understand. Reason. Execute.
 
+## 🔗 Live Links
+
+<p align="center">
+  <a href="https://voxera-kappa.vercel.app/"><strong>🌐 Live Application</strong></a> •
+  <a href="https://voxera-gibk.onrender.com/docs"><strong>📘 API Documentation</strong></a> •
+  <a href="https://voxera-gibk.onrender.com/health"><strong>💚 API Health</strong></a> •
+  <a href="https://github.com/suresh-vlsi/VOXERA"><strong>💻 GitHub Repository</strong></a>
+</p>
+
+**Frontend:** Vercel · **Backend:** Render · **AI Speech Provider:** Sarvam AI
+
 ## Current milestone
 
 Milestone 1 establishes a secure Sarvam Dictate clip workflow:
